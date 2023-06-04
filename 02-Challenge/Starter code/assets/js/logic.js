@@ -133,18 +133,13 @@ function clockTick() {
 }
 
 function saveHighscore() {
-  // get value of input box
-  var initials = initialsEl.value.trim();
+  var highscores =
+  JSON.parse(window.localStorage.getItem('highscores')) || [];
+
+  var initials = prompt('Enter your initials:')
 
   // make sure value wasn't empty
-  if (initials !== '') {
-
-    // get saved scores from localstorage, or if not any, set to empty array
-    
-    var highscores =
-      JSON.parse(window.localStorage.getItem('highscores')) /* what would go inside the PARSE??*/ || [];
-
-    // format new score object for current user
+  if (initials !== null && initials.trim() !== '') {
     var newScore = {
       score: time,
       initials: initials,
