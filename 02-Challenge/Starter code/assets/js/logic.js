@@ -1,7 +1,7 @@
 // variables to keep track of quiz state
 var currentQuestionIndex = 0;
 //time left value here
-var time = 12000;
+var time = 60;
 var timerId;
 
 // variables to reference DOM elements
@@ -37,7 +37,7 @@ function getQuestion() {
 
   // update title with current question
   var titleEl = document.getElementById('question-title');
-  titleEl.textContent = ; //think dot notation
+  titleEl.textContent = currentQuestion.title; 
 
   // clear out any old question choices
   var choicesEl = document.getElementById('choices');
@@ -67,7 +67,7 @@ function questionClick(event) {
   }
 
   // check if user guessed wrong
-  if (buttonEl.value !== quetions[currentQuestionIndex].answer) {
+  if (buttonEl.value !== questions[currentQuestionIndex].answer) {
     // penalize time
     time -=10;
     // display new time on page
@@ -80,6 +80,14 @@ function questionClick(event) {
       feedbackEl.textContent = '';
       feedbackEl.removeAttribute('class');
     }, 500);
+  } else {
+    feedbackEl.textContent = 'Correct!';
+    feedbackEl.setAttribute('class', 'feedback correct');
+    setTimeout(function () {
+      feedbackEl.textContent = '';
+      feedbackEl.removeAttribute('class');
+    }, 500);
+  }
 
   // move to next question
   currentQuestionIndex++;
@@ -95,6 +103,7 @@ function questionClick(event) {
     getQuestion();
   }
 }
+
 
 function quizEnd() {
   // stop timer
