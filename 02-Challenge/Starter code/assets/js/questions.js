@@ -15,5 +15,15 @@ var questions = [
     choices: ['Null type', 'Undefined type', 'Number type', 'All of the above'],
     answer: 'All of the above',
   },
+  {
+    title: 'Question 4: Which of the following methods can be used to display data in some for using Javascript?',
+    choices: ['document.write()', 'console.log()', 'window.alert()', 'all of the above'],
+    answer: 'all of the above',
+  },
+  {
+    title: 'Question 5: How can a datatype be declared to be a constant type?',
+    choices: ['const', 'var', 'let', 'constant'],
+    answer: 'const',
+  }
 
 ];
