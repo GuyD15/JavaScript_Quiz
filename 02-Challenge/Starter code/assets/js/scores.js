@@ -17,8 +17,6 @@ function printHighscores() {
 
     highscoresList.appendChild(liTag);
 
-    // display on page
-    olEl.appendChild(liTag);
   }
 }
 

@@ -103,7 +103,7 @@ function clockTick() {
 }
 
 function saveHighscore(event) {
-  
+
   var initialsInput = document.getElementById('initials');
   var initials = initialsInput.value.trim();
 
@@ -119,7 +119,11 @@ function saveHighscore(event) {
     localStorage.setItem('highscores', JSON.stringify(highscores));
     console.log('Updated highscores:', highscores);
 
+    initialsInput.value = '';
+    submitBtn.addEventListener('click', saveHighscore);
+
     window.location.href = 'highscores.html';
+    
   }
 }
 
